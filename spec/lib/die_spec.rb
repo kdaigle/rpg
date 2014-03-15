@@ -2,34 +2,33 @@ require "die"
 
 describe Die do
 
-  context "#sides" do
-    it "is nil when not set" do
-      expect(subject.sides).to be_nil
+  context "#initialize" do
+    it "doesn't accept 'nil' as a value" do
+      expect { Die.new(nil) }.to raise_error(TypeError)
     end
 
     it "sets the dice to any whole number" do
-      subject.sides = 6
-      expect(subject.sides).to be_eql(6)
+      die = Die.new(6)
+      expect(die.sides).to be_eql(6)
     end
 
-    it "converts a string number to an integer number" do
-      subject.sides = "6"
-      expect(subject.sides).to be_eql(6)
+    it "doesn't accept a string number" do
+      expect { Die.new("6") }.to raise_error(TypeError)
     end
 
-    it "doesn't accept 'nil' as a value" do
-      expect { subject.sides = nil }.to raise_error(TypeError)
+    it "doesn't accept a 0 or lower Integer" do
+      expect { Die.new(0) }.to raise_error(TypeError)
+    end
+
+    it "doesn't accept a Decimal or Float" do
+      expect { Die.new(6.5) }.to raise_error(TypeError)
     end
   end
 
   context "#roll" do
-    it "doesn't let you role a no-sided die" do
-      expect { subject.roll }.to raise_error(Die::NoSides)
-    end
-
     it "returns an Integer" do
-      subject.sides = 6
-      expect(subject.roll).to be_an(Integer)
+      die = Die.new(6)
+      expect(die.roll).to be_an(Integer)
     end
   end
 

@@ -22,4 +22,15 @@ describe Die do
     end
   end
 
+  context "#roll" do
+    it "doesn't let you role a no-sided die" do
+      expect { subject.roll }.to raise_error(Die::NoSides)
+    end
+
+    it "returns an Integer" do
+      subject.sides = 6
+      expect(subject.roll).to be_an(Integer)
+    end
+  end
+
 end

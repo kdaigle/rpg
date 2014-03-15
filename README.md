@@ -1,6 +1,6 @@
 # RPG
 
-Let's play an RPG, shall we?
+Let's play an RPG, shall we? [![Build Status](https://travis-ci.org/kdaigle/rpg.png)](https://travis-ci.org/kdaigle/rpg)
 
 ## Goals
 

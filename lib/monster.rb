@@ -1,6 +1,7 @@
 class Monster
 
   HEALTH_POINTS_FACTOR = 3.freeze
+  ATTACK_POWER_FACTOR = 1.5.freeze
 
   attr_reader :name, :level, :difficulty, :strength, :dexterity, :constitution, :intelligence
 
@@ -17,6 +18,10 @@ class Monster
 
   def health_points
     constitution * HEALTH_POINTS_FACTOR
+  end
+
+  def attack_power
+    (strength * ATTACK_POWER_FACTOR).round
   end
 
 end

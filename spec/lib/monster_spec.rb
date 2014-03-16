@@ -30,4 +30,10 @@ describe Monster do
       expect(subject.health_points).to eql(45)
     end
   end
+
+  context "attack_power" do
+    it "calculates the attack power based on strength" do
+      expect(subject.attack_power).to eql(8)
+    end
+  end
 end
